@@ -1,4 +1,3 @@
-import Vue from "vue";
 import {Grid, ComponentUtil} from "ag-grid/main";
 import {VueFrameworkFactory} from "./vueFrameworkFactory";
 import {VueFrameworkComponentWrapper} from "./vueFrameworkComponentWrapper";
@@ -16,7 +15,7 @@ ComponentUtil.EVENTS.forEach((eventName) => {
     props.push(eventName);
 });
 
-export default Vue.extend({
+export default {
     template: '<div></div>',
     props: props,
     data() {
@@ -71,5 +70,5 @@ export default Vue.extend({
             this._destroyed = true;
         }
     }
-});
+};
 

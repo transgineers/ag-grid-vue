@@ -1,4 +1,3 @@
-import Vue from "vue";
 
 export class VueComponentFactory {
     constructor($el, parent) {
@@ -139,7 +138,7 @@ export class VueComponentFactory {
                 console.error(`Could not find component with name of ${component}. Is it in Vue.components?`);
                 return null;
             }
-            return Vue.extend(componentInstance)
+            return parent.$root.extend(componentInstance)
         } else {
             // assume a type
             return component;
