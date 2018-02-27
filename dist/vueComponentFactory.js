@@ -1,17 +1,10 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.VueComponentFactory = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _vue = require("vue");
-
-var _vue2 = _interopRequireDefault(_vue);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24,7 +17,7 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
     }
 
     _createClass(VueComponentFactory, [{
-        key: "createRendererFromComponent",
+        key: 'createRendererFromComponent',
         value: function createRendererFromComponent(component) {
             var componentType = VueComponentFactory.getComponentType(this.parent, component);
             if (!componentType) {
@@ -37,17 +30,17 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
                 }
 
                 _createClass(CellRendererComponent, [{
-                    key: "init",
+                    key: 'init',
                     value: function init(params) {
                         this.component = VueComponentFactory.createAndMountComponent(params, componentType);
                     }
                 }, {
-                    key: "getGui",
+                    key: 'getGui',
                     value: function getGui() {
                         return this.component.$el;
                     }
                 }, {
-                    key: "destroy",
+                    key: 'destroy',
                     value: function destroy() {
                         this.component.$destroy();
                     }
@@ -59,7 +52,7 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
             return CellRendererComponent;
         }
     }, {
-        key: "createEditorFromComponent",
+        key: 'createEditorFromComponent',
         value: function createEditorFromComponent(component) {
             var componentType = VueComponentFactory.getComponentType(this.parent, component);
             if (!componentType) {
@@ -72,49 +65,49 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
                 }
 
                 _createClass(CellEditor, [{
-                    key: "init",
+                    key: 'init',
                     value: function init(params) {
                         this.component = VueComponentFactory.createAndMountComponent(params, componentType);
                     }
                 }, {
-                    key: "getValue",
+                    key: 'getValue',
                     value: function getValue() {
                         return this.component.getValue();
                     }
                 }, {
-                    key: "getGui",
+                    key: 'getGui',
                     value: function getGui() {
                         return this.component.$el;
                     }
                 }, {
-                    key: "destroy",
+                    key: 'destroy',
                     value: function destroy() {
                         this.component.$destroy();
                     }
                 }, {
-                    key: "isPopup",
+                    key: 'isPopup',
                     value: function isPopup() {
                         return this.component.isPopup ? this.component.isPopup() : false;
                     }
                 }, {
-                    key: "isCancelBeforeStart",
+                    key: 'isCancelBeforeStart',
                     value: function isCancelBeforeStart() {
                         return this.component.isCancelBeforeStart ? this.component.isCancelBeforeStart() : false;
                     }
                 }, {
-                    key: "isCancelAfterEnd",
+                    key: 'isCancelAfterEnd',
                     value: function isCancelAfterEnd() {
                         return this.component.isCancelAfterEnd ? this.component.isCancelAfterEnd() : false;
                     }
                 }, {
-                    key: "focusIn",
+                    key: 'focusIn',
                     value: function focusIn() {
                         if (this.component.focusIn) {
                             this.component.focusIn();
                         }
                     }
                 }, {
-                    key: "focusOut",
+                    key: 'focusOut',
                     value: function focusOut() {
                         if (this.component.focusOut) {
                             this.component.focusOut();
@@ -128,7 +121,7 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
             return CellEditor;
         }
     }, {
-        key: "createFilterFromComponent",
+        key: 'createFilterFromComponent',
         value: function createFilterFromComponent(component) {
             var componentType = VueComponentFactory.getComponentType(this.parent, component);
             if (!componentType) {
@@ -141,49 +134,49 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
                 }
 
                 _createClass(Filter, [{
-                    key: "init",
+                    key: 'init',
                     value: function init(params) {
                         this.component = VueComponentFactory.createAndMountComponent(params, componentType);
                     }
                 }, {
-                    key: "getGui",
+                    key: 'getGui',
                     value: function getGui() {
                         return this.component.$el;
                     }
                 }, {
-                    key: "destroy",
+                    key: 'destroy',
                     value: function destroy() {
                         this.component.$destroy();
                     }
                 }, {
-                    key: "isFilterActive",
+                    key: 'isFilterActive',
                     value: function isFilterActive() {
                         return this.component.isFilterActive();
                     }
                 }, {
-                    key: "doesFilterPass",
+                    key: 'doesFilterPass',
                     value: function doesFilterPass(params) {
                         return this.component.doesFilterPass(params);
                     }
                 }, {
-                    key: "getModel",
+                    key: 'getModel',
                     value: function getModel() {
                         return this.component.getModel();
                     }
                 }, {
-                    key: "setModel",
+                    key: 'setModel',
                     value: function setModel(model) {
                         this.component.setModel(model);
                     }
                 }, {
-                    key: "afterGuiAttached",
+                    key: 'afterGuiAttached',
                     value: function afterGuiAttached(params) {
                         if (this.component.afterGuiAttached) {
                             this.component.afterGuiAttached(params);
                         }
                     }
                 }, {
-                    key: "getFrameworkComponentInstance",
+                    key: 'getFrameworkComponentInstance',
                     value: function getFrameworkComponentInstance() {
                         return this.component;
                     }
@@ -195,22 +188,22 @@ var VueComponentFactory = exports.VueComponentFactory = function () {
             return Filter;
         }
     }], [{
-        key: "getComponentType",
+        key: 'getComponentType',
         value: function getComponentType(parent, component) {
             if (typeof component === 'string') {
                 var componentInstance = parent.$parent.$options.components[component];
                 if (!componentInstance) {
-                    console.error("Could not find component with name of " + component + ". Is it in Vue.components?");
+                    console.error('Could not find component with name of ' + component + '. Is it in Vue.components?');
                     return null;
                 }
-                return _vue2.default.extend(componentInstance);
+                return parent.$root.extend(componentInstance);
             } else {
                 // assume a type
                 return component;
             }
         }
     }, {
-        key: "createAndMountComponent",
+        key: 'createAndMountComponent',
         value: function createAndMountComponent(params, componentType) {
             var details = {
                 // parent: that.parent,

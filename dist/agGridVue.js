@@ -4,17 +4,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _vue = require("vue");
-
-var _vue2 = _interopRequireDefault(_vue);
-
 var _main = require("ag-grid/main");
 
 var _vueFrameworkFactory = require("./vueFrameworkFactory");
 
 var _vueFrameworkComponentWrapper = require("./vueFrameworkComponentWrapper");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var watchedProperties = {};
 var props = ['gridOptions'];
@@ -29,7 +23,7 @@ _main.ComponentUtil.EVENTS.forEach(function (eventName) {
     props.push(eventName);
 });
 
-exports.default = _vue2.default.extend({
+exports.default = {
     template: '<div></div>',
     props: props,
     data: function data() {
@@ -86,4 +80,4 @@ exports.default = _vue2.default.extend({
             this._destroyed = true;
         }
     }
-});
+};
